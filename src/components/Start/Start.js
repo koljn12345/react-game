@@ -1,5 +1,8 @@
 export const Start = ({onClick}) => {
     return (
-        <div onClick={onClick}>Play</div>
+        <div className="content">
+            <h1>Welcome!</h1>
+            <div className="btn" onClick={onClick}>Play</div>
+        </div>        
     )
 }

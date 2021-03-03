@@ -1,6 +1,6 @@
-export const getData = ()=>{  
+export const getData = (n)=>{  
     const page= Math.ceil(Math.random()*100)
-    return fetch(`https://picsum.photos/v2/list?page=${page}&limit=2`).
+    return fetch(`https://picsum.photos/v2/list?page=${page}&limit=${n}`).
     then(res=>res.json()).
     then(data=> {return data.map(el=>{ el.download_url=[...el.download_url.split('/').slice(0,-2), 300,500].join('/');
       return{id: el.id, url : el.download_url}})}).

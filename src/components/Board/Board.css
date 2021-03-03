@@ -1,9 +1,6 @@
 *{
     box-sizing: border-box;
 }
-body {
-    background: url(../../assets/images/bg-3.jpg);
-}
 .board {
     max-width: 80%;
     margin: 0 auto;
@@ -14,8 +11,7 @@ body {
 .card {
     margin-top: 20px;
     width: 15%;
-    height: 250px;
-    background: url(../../assets/images/s-5.jpg);
+    height: 250px;    
     background-size: cover;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(0 0 0 / 60%);
@@ -26,6 +22,21 @@ body {
     overflow: hidden;
 }
 
+.card.s1 {
+    background-image: url(../../assets/images/s-1.jpg);
+}
+.card.s2 {
+    background-image: url(../../assets/images/s-2.jpg);
+}
+.card.s3 {
+    background-image: url(../../assets/images/s-3.jpg);
+}
+.card.s4 {
+    background-image: url(../../assets/images/s-4.jpg);
+}
+.card.s5 {
+    background-image: url(../../assets/images/s-5.jpg);
+}
 .card:hover {
     filter: sepia(100%);       
 }

@@ -1,0 +1,11 @@
+.settings__group {
+    
+}
+
+.settings__item {
+    margin: 0 10px;
+}
+
+.settings__items {
+    display: flex;
+}

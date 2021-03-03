@@ -3,8 +3,7 @@ import './Board.css'
 import { Card } from '../Card/Card';
 import { getInitData } from '../../util/util';
 
-export const  Board = ({data, handleIsWin})=> {
-
+export const  Board = ({data, handleIsWin, handleStepsCount, settings})=> {
     const [cards, setCards] = useState(getInitData(data));
     const [openFirstCard, setOpenFirstCard]=useState(null);
     const [openSecondCard, setOpenSecondCard]=useState(null);
@@ -40,7 +39,7 @@ export const  Board = ({data, handleIsWin})=> {
         setTimeout(()=>{
             toogleIsOpenCard(f,false);
             toogleIsOpenCard(s,false);
-        },1000)
+        },700)
         
     }
     const checkEqual = ()=> {
@@ -60,7 +59,11 @@ export const  Board = ({data, handleIsWin})=> {
     },[])
 
     useEffect(()=> {
-        if(openFirstCard && openSecondCard) checkEqual();
+        if(openFirstCard && openSecondCard) 
+            {
+                checkEqual();
+                handleStepsCount();
+            }
     },[openFirstCard,openSecondCard])
 
     useEffect(()=> {
@@ -79,7 +82,7 @@ export const  Board = ({data, handleIsWin})=> {
     return (
         <div className="board">
             {cards.map(el=> (
-                <Card key={el.id} handleClickCards={()=>handleClickCards(el)} {...el} />
+                <Card key={el.id} handleClickCards={()=>handleClickCards(el)} settings={settings} {...el} />
             ))}
         </div>
     )
