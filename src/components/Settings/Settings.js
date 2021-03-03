@@ -1,6 +1,8 @@
 import * as images from '../../assets/images/script';
+import { CloseButton } from '../CloseButton/ClosseButton';
+import { ResetButton } from '../ResetButton/ResetButton';
 import './Settings.css'
-export const Settings = ({onClick, settings,onClickParametr,onClickClose}) => {
+export const Settings = ({onClickReset, settings,onClickParametr,onClickClose}) => {
     return (
         <div className="content">
             <h1>Settings</h1>
@@ -21,9 +23,8 @@ export const Settings = ({onClick, settings,onClickParametr,onClickClose}) => {
                     </div>
                 </div>                             
             }) } 
-
-            <div className="btn" onClick={onClick}>Reset</div>
-            <div className="btn" onClick={onClickClose}>Close</div>
+            <ResetButton onClick={onClickReset}/>
+            <CloseButton onClick={onClickClose} />
         </div>  
     )
 }

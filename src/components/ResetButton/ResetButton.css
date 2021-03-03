@@ -1,0 +1,14 @@
+.resetButton {
+    cursor: pointer;
+    margin: 20px auto;
+    transition: 1.5s;
+}
+
+.resetButton:hover {
+    transform: rotate(180deg);
+}
+
+.resetButton--popup {
+    position: relative;
+    bottom: 20px;
+}

@@ -20,7 +20,7 @@ export const Popup = ({
         {isWin ? <Win onClick={handleClickReset} stepsCount={stepsCount} /> : null}
         {isSettings ? (
           <Settings
-            onClick={handleClickReset}
+            onClickReset={handleClickReset}
             settings={settings}
             onClickParametr={handleClickParametr}
             onClickClose={onClickClose}

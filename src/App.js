@@ -4,12 +4,13 @@ import { Board } from "./components/Board/Board";
 import { Counter } from "./components/Counter/Counter";
 import { Popup } from "./components/Popup/Popup";
 import { Sounds } from "./components/Sounds/Sounds";
+import { SettingsButton } from "./components/SettingsButton/SettingsButton";
 import { getData } from "./util/util";
 
 const settingsS = {
   quantity: {
     current: 6,
-    mass: [4, 6, 8, 10],
+    mass: [4, 6, 8, 10, 12],
     name: "Quantity",
   },
   background: {
@@ -114,12 +115,11 @@ function App() {
           onClickClose={handleClickClose}
         />
       ) : (
-        <div className="btn" onClick={handleClicksettings}>
-          settings
-        </div>
+        <SettingsButton handleClicksettings={handleClicksettings} />
+        
       )}
 
-      {isLoading ? <div className="App-logo">Loading....</div> : null}
+      {isLoading ? <div className="">Loading....</div> : null}
     </div>
   );
 }

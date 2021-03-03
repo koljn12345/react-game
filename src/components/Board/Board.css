@@ -32,6 +32,9 @@
 .board-10 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+.board-12 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
 .card.s1 {
     background-image: url(../../assets/images/s-1.jpg);
 }
@@ -62,6 +65,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     display: none;
 }
 .card.open img {
