@@ -1,7 +1,6 @@
 import * as images from '../../assets/images/script';
 import './Settings.css'
 export const Settings = ({onClick, settings,onClickParametr,onClickClose}) => {
-    //console.log(images)
     return (
         <div className="content">
             <h1>Settings</h1>
@@ -12,9 +11,11 @@ export const Settings = ({onClick, settings,onClickParametr,onClickClose}) => {
                     {
                         settings[param].mass.map((el,i) => {
                             if(param === 'background' || param === 'bgCard') {
-                                       return <img className="settings__item" src={images[el]} height="100" width="70" alt='img' onClick={()=>onClickParametr(param, el)}></img>
+                                        const classN= el === settings[param].current ? "settings__item active" :"settings__item"
+                                       return <img className={classN} src={images[el]} height="100" width="70" alt='img' onClick={()=>onClickParametr(param, el)}></img>
                                     }
-                                     return <div className="settings__item" key={i}  onClick={()=>onClickParametr(param, el)}>{el}</div>
+                                    const classN= el === settings[param].current ? "settings__item--select active" :"settings__item--select"
+                                     return <div className={classN} key={i}  onClick={()=>onClickParametr(param, el)}>{el}</div>
                         })
                     }
                     </div>

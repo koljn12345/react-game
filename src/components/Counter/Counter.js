@@ -1,6 +1,5 @@
-export const Counter = ({seconds})=> {
-    console.log(1)
+export const Counter = ({count})=> {
     return (
-        <p>{seconds<0? 0 : seconds}</p>
+        <p>{count}</p>
     )
 }

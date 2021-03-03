@@ -13,7 +13,6 @@ export const Popup = ({
   stepsCount,
   onClickClose
 }) => {
-    console.log(stepsCount)
   return (
     <>
       <div className="popup">

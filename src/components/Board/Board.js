@@ -3,13 +3,14 @@ import './Board.css'
 import { Card } from '../Card/Card';
 import { getInitData } from '../../util/util';
 
-export const  Board = ({data, handleIsWin, handleStepsCount, settings})=> {
+export const  Board = ({data, handleIsWin, handleStepsCount, settings,changePropsSounds})=> {
     const [cards, setCards] = useState(getInitData(data));
     const [openFirstCard, setOpenFirstCard]=useState(null);
     const [openSecondCard, setOpenSecondCard]=useState(null);
     const [countSuccesEqual, setCountSuccesEqual] =useState(0);
 
     const toogleIsOpenCard=(e,flag) => {
+        changePropsSounds(true,false,false);
         setCards( prev=> prev.map(el=>{
             if(el.id == e.id) el.isOpen=flag;
             return el
@@ -23,7 +24,8 @@ export const  Board = ({data, handleIsWin, handleStepsCount, settings})=> {
         }))
     }
 
-    const onSuccesEqual = ()=> {    
+    const onSuccesEqual = ()=> {  
+        changePropsSounds(false,true,false);
         toogleIsSolutionCard(openFirstCard);
         toogleIsSolutionCard(openSecondCard);
         setOpenFirstCard(null);
@@ -32,6 +34,7 @@ export const  Board = ({data, handleIsWin, handleStepsCount, settings})=> {
           
     }
     const onFailEqual = ()=> {
+        changePropsSounds(false,false,true);
         let f=openFirstCard;
         let s=openSecondCard; 
         setOpenFirstCard(null);
@@ -79,8 +82,10 @@ export const  Board = ({data, handleIsWin, handleStepsCount, settings})=> {
        else if(!openSecondCard)  setOpenSecondCard(e);
          
     }
+    const classN=`board board-${settings.quantity.current}`;
     return (
-        <div className="board">
+        
+        <div className={classN}>
             {cards.map(el=> (
                 <Card key={el.id} handleClickCards={()=>handleClickCards(el)} settings={settings} {...el} />
             ))}
