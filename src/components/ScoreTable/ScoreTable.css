@@ -1,0 +1,14 @@
+.scoreTable {
+    margin: 0 auto;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.scoreTable tr.active {
+    background-color: rgb(77 255 222 / 49%);
+}
+
+.scoreTable th {
+    padding: 15px 10px;
+}

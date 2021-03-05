@@ -14,7 +14,7 @@ export const Settings = ({onClickReset, settings,onClickParametr,onClickClose}) 
                         settings[param].mass.map((el,i) => {
                             if(param === 'background' || param === 'bgCard') {
                                         const classN= el === settings[param].current ? "settings__item active" :"settings__item"
-                                       return <img className={classN} src={images[el]} height="100" width="70" alt='img' onClick={()=>onClickParametr(param, el)}></img>
+                                       return <img key={i} className={classN} src={images[el]} height="100" width="70" alt='img' onClick={()=>onClickParametr(param, el)}></img>
                                     }
                                     const classN= el === settings[param].current ? "settings__item--select active" :"settings__item--select"
                                      return <div className={classN} key={i}  onClick={()=>onClickParametr(param, el)}>{el}</div>

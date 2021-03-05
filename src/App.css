@@ -28,6 +28,13 @@
     transform: rotate(360deg);
   }
 }
+.sidebar {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+}
 
 .App.v1 {
   background: url(./assets/images/bg-1.jpg);

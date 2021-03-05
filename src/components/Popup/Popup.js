@@ -11,13 +11,14 @@ export const Popup = ({
   settings,
   handleClickParametr,
   stepsCount,
-  onClickClose
+  onClickClose,
+  scoreTable
 }) => {
   return (
     <>
       <div className="popup">
         {!startGame ? <Start onClick={handleClickPlay} /> : null}
-        {isWin ? <Win onClick={handleClickReset} stepsCount={stepsCount} /> : null}
+        {isWin ? <Win onClick={handleClickReset} stepsCount={stepsCount} quantity={settings.quantity.current} scoreTable={scoreTable}/> : null}
         {isSettings ? (
           <Settings
             onClickReset={handleClickReset}

@@ -6,6 +6,7 @@ import { Popup } from "./components/Popup/Popup";
 import { Sounds } from "./components/Sounds/Sounds";
 import { SettingsButton } from "./components/SettingsButton/SettingsButton";
 import { getData } from "./util/util";
+import { ResetButton } from "./components/ResetButton/ResetButton";
 
 const settingsS = {
   quantity: {
@@ -34,9 +35,45 @@ function App() {
   const [isNewSettings, setIsNewSettings] = useState(false);
   const [stepsCount, setStepsCount] = useState(0);
   const [propsSound,setPropsSound]=useState({});
+  const [scoreTable, setScoreTable] = useState([])
+  
   const handleIsWin = () => {
     setIsWin(true);
   };
+
+  useEffect(()=> {
+    if(isWin) {
+      handleAddScore()
+    }
+  },[isWin])
+
+  useEffect(()=> {
+    if(localStorage.getItem('score')) {
+      setScoreTable(JSON.parse(localStorage.getItem('score')))
+    }
+  },[])
+
+  useEffect(()=> {
+    if(scoreTable) {
+      localStorage.setItem('score',JSON.stringify(scoreTable))
+    }    
+  },[scoreTable])
+
+  localStorage.getItem('test')
+  const handleAddScore = () => {
+    const newScore= {
+      quantity: settings.quantity.current,
+      steps : stepsCount,
+      active: true,
+      id: new Date ()
+    }
+    setScoreTable(prev=> {
+      console.log(prev)
+      return [...prev.map(el=> { return {...el, active: false}}), newScore].sort((a,b)=>{if (a.steps > b.steps) return 1;
+      if (a.steps == b.steps) return 0;
+      if (a.steps < b.steps) return -1;})
+    })
+  }
 
   useEffect(() => {
     if (isLoading || isNewSettings) newGame();
@@ -80,6 +117,7 @@ function App() {
   const handleClickClose = () => {
     setIsSettings(false);
   };
+
   const handleChangePropsSounds=(openCards, success,fail)=> {
     setPropsSound({
       openCards,
@@ -91,7 +129,7 @@ function App() {
   const classN = `App ${settings.background.current}`;
   return (
     <div className={classN}>
-      <Sounds isWin={isWin} propsSound={propsSound} />
+      <Sounds isWin={isWin} propsSound={propsSound} isSettings={isSettings} startGame={startGame} />
       {startGame && !isLoading && data.length ? (
         <Board
           data={data}
@@ -113,9 +151,14 @@ function App() {
           settings={settings}
           stepsCount={stepsCount}
           onClickClose={handleClickClose}
+          scoreTable={scoreTable}
         />
       ) : (
-        <SettingsButton handleClicksettings={handleClicksettings} />
+        <div className="sidebar">
+          <SettingsButton handleClicksettings={handleClicksettings} />
+          <ResetButton onClick={handleClickReset}/>
+        </div>
+        
         
       )}
 

@@ -17,3 +17,11 @@ export const getInitData=(data) => {
         
     })).sort(() => Math.random() - 0.5)
 }
+
+export const createAudio = (sounds) => {
+    const newSounds = {};
+    Object.keys(sounds).map((el) => {
+      newSounds[el] = new Audio(sounds[el]);
+    });
+    return newSounds;
+  };
