@@ -1,0 +1,27 @@
+.sounds__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 64px;
+    position: absolute;
+    top: 190px;
+    right: 15px;
+}
+
+.sounds__container input {
+    margin: 10px 0 15px;
+    width: 100%;
+}
+.sounds input,
+.sounds img {
+    cursor: pointer;
+}
+
+.sounds img:hover {
+    transition: .1s;
+}
+.sounds img:hover {
+    transform: scale(1.1);
+}
+.sounds.muted {
+    filter: grayscale(1);
+}

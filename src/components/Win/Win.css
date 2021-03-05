@@ -1,0 +1,11 @@
+.win__text {
+    font-size: 21px;
+    margin: 10px;
+    color: #ffff2b;    
+    font-weight: bold;
+}
+
+.win__text span {
+    font-size: 22px;
+    color: #900700e0;
+}

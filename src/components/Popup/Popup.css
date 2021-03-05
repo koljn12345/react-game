@@ -1,0 +1,42 @@
+.popup {
+    position: absolute;
+    background: linear-gradient(
+135deg
+, #e55d87ed 0%, #5fc3e4eb 100%);
+    width: 50%;
+    left: 0;
+    right: 0;
+    top: 15%;
+    min-height: 50vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 2px #ae87ad;
+    z-index: 1;
+}
+.popup__bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(3px);
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn {
+    cursor: pointer;
+    background: linear-gradient( 
+135deg
+ , #cdff06 0%, #58ff00eb 100%);
+    width: 200px;
+    align-self: center;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 24px;
+}

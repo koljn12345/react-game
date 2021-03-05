@@ -1,0 +1,15 @@
+.settingButton {  
+  cursor: pointer;
+}
+
+.settingButton:hover {
+  animation: settingButton-spin infinite 5s linear;
+}
+@keyframes settingButton-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

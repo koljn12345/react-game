@@ -1,0 +1,9 @@
+.playButton {
+    cursor: pointer;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.playButton:hover {
+    background: radial-gradient(#af799d, #8199ba);
+}
